@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4285F4">
+    <title>Big Agendamentos</title>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #f8f9fa;
+        }
+        .app-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #4285F4;
+        }
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4285F4;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 2s linear infinite;
+            margin: 0 auto 15px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Carregando Big Agendamentos...</p>
+        </div>
+        <iframe 
+            src="https://script.google.com/macros/s/AKfycbzi1IiWXplAdKiZ_AG-9qeDr87Lxstw8I3CLkJKyuuC-Ho1jAQP9UHLQ5Jjm6NNC16K/exec"
+            id="appFrame"
+            onload="document.getElementById('loading').style.display='none'"
+            allow="camera; microphone; fullscreen">
+        </iframe>
+    </div>
+</body>
+</html>
